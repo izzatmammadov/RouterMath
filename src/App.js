@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Home } from './componenets/Home'
+import { ROUTER } from './constants/Routers'
+import { Addiction } from './componenets/Addiction'
+import { Subtract } from './componenets/Subtract'
+import { Multiply } from './componenets/Multiply'
+import { Division } from './componenets/Division'
+import { Route, Routes } from 'react-router-dom'
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path={ROUTER.Home} element={<Home/>}/>
+        <Route path={ROUTER.Addition + "/:num1/:num2"} element={<Addiction/>}/>
+        <Route path={ROUTER.Subtraction + "/:num1/:num2"} element={<Subtract/>}/>
+        <Route path={ROUTER.Multiplication + "/:num1/:num2"} element={<Multiply/>}/>
+        <Route path={ROUTER.Division + "/:num1/:num2"} element={<Division/>}/>
+      </Routes>
     </div>
-  );
+  )
 }
-
-export default App;
